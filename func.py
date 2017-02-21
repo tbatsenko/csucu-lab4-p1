@@ -15,20 +15,22 @@ def myexcept_raise_func():
     raise MyError()
 
 
-def raise_func():
+def raise_func(object):
     """
-    This function raises a KeyError.
+    Precautions: object variable must be an Exception such as KeyError,
+    ValueError, etc...
+    This function raises a object error.
     """
-    raise KeyError
-    raise IndexError
+    raise object
 
 
-def except_func():
+def except_func(object):
     """
     This function catches all Exeptions which were mentioned in the problem.
+    (object) -> (Exception)
     """
     try:
-        raise_func()
+        raise_func(object)
     except KeyError as keyError_data:
         print("Caught a KeyError with a following data:")
         print(keyError_data)
@@ -41,7 +43,4 @@ def except_func():
     except:
         print("Caught an unknown error")
     finally:
-        print("Catching finished")
-
-
-except_func()
+        print("Catching finished\n\n")
